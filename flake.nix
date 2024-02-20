@@ -1,6 +1,6 @@
 {
   inputs = {
-    typhon.url = "github:typhon-ci/typhon";
+    typhon.url = "github:typhon-ci/typhon/pnm/clearenv";
     nixpkgs.follows = "typhon/nixpkgs";
   };
   outputs = {
@@ -12,24 +12,14 @@
     pkgs = import nixpkgs {inherit system;};
   in {
     typhonJobs.${system} = {
-      hello = pkgs.hello;
+      hello = pkgs.writeTextDir "index.html" "Hello world!";
       failure = pkgs.stdenv.mkDerivation {name = "failure";};
     };
-    #typhonProject = typhon.lib.github.mkProject {
-    #  owner = "pnmadelaine";
-    #  repo = "test";
-    #  secrets = pkgs.writeTextFile "secrets" "";
-    #  typhonUrl = "https://example.com";
-    #};
-    typhonProject = typhon.lib.builders.mkProject {
-      actions.begin = typhon.lib.builders.mkActionScript {
-        mkPath = system: let
-          pkgs = import nixpkgs {inherit system;};
-        in [pkgs.coreutils pkgs.jq];
-        mkScript = _: ''
-          cat | jq '.input'
-        '';
-      };
+    typhonProject = typhon.lib.github.mkProject {
+      owner = "pnmadelaine";
+      repo = "test";
+      secrets = pkgs.writeText "secrets" "";
+      typhonUrl = "https://example.com";
     };
   };
 }
