@@ -1,0 +1,9 @@
+on:
+  push:
+
+jobs:
+  typhon:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: typhon-ci/typhon-gh-action@main
