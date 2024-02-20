@@ -28,7 +28,7 @@
         in [pkgs.nix pkgs.jq];
         mkScript = system: ''
           url=$(cat | jq '.input.url')
-          rev=$(nix --extra-experimental-features nix-command eval --json --expr "builtins.parseFlakeRef \"$url\"" | jq -r '.rev')
+          rev=$(nix --extra-experimental-features "nix-command flakes" eval --json --expr "builtins.parseFlakeRef \"$url\"" | jq -r '.rev')
           echo "$rev" >&2
         '';
       };
