@@ -149,7 +149,7 @@
       },
       "original": {
         "owner": "typhon-ci",
-        "ref": "pnm/wip/clearenv",
+        "ref": "pnm/clearenv",
         "repo": "typhon",
         "type": "github"
       }

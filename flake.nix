@@ -1,6 +1,6 @@
 {
   inputs = {
-    typhon.url = "github:typhon-ci/typhon/pnm/wip/clearenv";
+    typhon.url = "github:typhon-ci/typhon/pnm/clearenv";
     nixpkgs.follows = "typhon/nixpkgs";
   };
   outputs = {
