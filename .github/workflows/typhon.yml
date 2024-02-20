@@ -7,3 +7,5 @@ jobs:
     steps:
       - uses: DeterminateSystems/nix-installer-action@main
       - uses: typhon-ci/typhon-gh-action@main
+        with:
+          secrets: ${{ secrets.TYPHON_SECRETS }}
