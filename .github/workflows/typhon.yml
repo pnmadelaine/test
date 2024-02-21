@@ -6,6 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: DeterminateSystems/nix-installer-action@main
-      - uses: typhon-ci/typhon-github-action@main
+      - uses: typhon-ci/typhon-github-action@pnm/age
         with:
-          secrets: ${{ secrets.TYPHON_SECRETS }}
+          key: ${{ secrets.TYPHON_KEY }}

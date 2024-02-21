@@ -18,7 +18,7 @@
     typhonProject = typhon.lib.github.mkProject {
       owner = "pnmadelaine";
       repo = "test";
-      secrets = pkgs.writeText "secrets" "";
+      secrets = ./secrets.age;
       typhonUrl = "https://example.com";
     };
   };
